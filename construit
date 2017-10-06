@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ $# != 4 ]
+then
+        echo "Usage : $0 lambda mu date debug"
+				exit -1
+fi
+
+set -v
+
+javac *.java
+
+xterm -hold -e  java MM1 ${1} ${2} ${3} ${4} &
