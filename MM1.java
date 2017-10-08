@@ -7,6 +7,10 @@
  *
  */
 
+
+ import java.io.FileWriter;
+ import java.io.IOException;
+
 public class MM1 {
     protected int lambda;
     protected int mu;
@@ -37,7 +41,34 @@ public class MM1 {
             System.out.println("Valeur debug inconnue");
         }
 
-        echeancier = new Ech(duree, lambda, mu, debug);
+        try {
+            int[] r;
+            FileWriter writer;
+            writer = new FileWriter("log.js", true);
+            writer.append("var data = [");
+
+            //writer.flush();
+            //writer.append("\n],\n\tconfig = {\n\t\tdata: data,\n\t\txkey: 't',\n\t\tykeys: ['or', 'argent','bronze'],\n\t\tlabels: ['or', 'argent','bronze'],\n\t\tfillOpacity: 0.8,\n\t\thideHover: 'auto',\n\t\tbehaveLikeLine: true,\n\t\tresize: true,\n\t\tpointFillColors:['#ffffff'],\n\t\tpointStrokeColors: ['black'],\n\t\tparseTime:false,\n\t\tlineColors:['#f4bf42','red','blue']\n\t};\nconfig.element = '" + "log1" + "';\nMorris.Line(config);");
+            writer.close();
+
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+
+        for ( int  i = 0 ; i < 10 ; i++)
+          echeancier = new Ech(duree, lambda, mu, debug,i);
+
+          try {
+              int[] r;
+              FileWriter writer;
+              writer = new FileWriter("log.js", true);
+              writer.append("\n],\n\tconfig = {\n\t\tdata: data,\n\t\txkey: 't',\n\t\tykeys: ['nbclient'],\n\t\tlabels: ['nbclient'],\n\t\tfillOpacity: 0.8,\n\t\thideHover: 'auto',\n\t\tbehaveLikeLine: true,\n\t\tresize: true,\n\t\tpointFillColors:['#ffffff'],\n\t\tpointStrokeColors: ['black'],\n\t\tparseTime:false,\n\t\tlineColors:['#f4bf42','red','blue']\n\t};\nconfig.element = '" + "log1" + "';\nMorris.Line(config);");
+              writer.close();
+
+          } catch (IOException e) {
+              System.out.println(e);
+          }
+
 
     }
 

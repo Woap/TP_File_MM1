@@ -34,6 +34,7 @@ public class Evt {
                 System.out.println("Date=" + date + "\t Depart  client #" + no_client + "\t arrive a t=" + date_debug);
             else
                 System.out.println("Date=" + date + "\t Arrivee client #" + no_client);
+
     }
 
 		public int compareTo(Evt e) {
