@@ -11,7 +11,14 @@ public class Evt {
     protected int type; // 1 arrivee et 0 depart
     protected int no_client;
     protected double date;
-    protected double date_debug; // Cas debug = 1
+    protected double date_debug; // Cas type depart
+
+    public Evt(int type, double date, int no_client)
+		{
+        this.type = type;
+        this.date = date;
+        this.no_client = no_client;
+    };
 
     public Evt(int type, double date, int no_client, double date_arrive)
 		{
@@ -22,13 +29,6 @@ public class Evt {
             this.date_debug = date_arrive;
     };
 
-    public Evt(int type, double date, int no_client)
-		{
-        this.type = type;
-        this.date = date;
-        this.no_client = no_client;
-    };
-
     public void affichage() {
             if (type == 0)
                 System.out.println("Date=" + date + "\t Depart  client #" + no_client + "\t arrive a t=" + date_debug);
@@ -37,18 +37,11 @@ public class Evt {
 
     }
 
-		public int compareTo(Evt e) {
-        if (this.date < e.date)
-            return -1;
-        else
-            return 1;
-    }
-
-    protected double get_date() {
+    public double get_date() {
         return date;
     }
 
-    protected int get_type() {
+    public int get_type() {
         return type;
     }
 
