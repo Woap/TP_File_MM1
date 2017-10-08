@@ -13,15 +13,13 @@ public class Evt {
     protected double date;
     protected double date_debug; // Cas type depart
 
-    public Evt(int type, double date, int no_client)
-		{
+    public Evt(int type, double date, int no_client) {
         this.type = type;
         this.date = date;
         this.no_client = no_client;
     };
 
-    public Evt(int type, double date, int no_client, double date_arrive)
-		{
+    public Evt(int type, double date, int no_client, double date_arrive) {
         this.type = type;
         this.date = date;
         this.no_client = no_client;
@@ -30,10 +28,10 @@ public class Evt {
     };
 
     public void affichage() {
-            if (type == 0)
-                System.out.println("Date=" + date + "\t Depart  client #" + no_client + "\t arrive a t=" + date_debug);
-            else
-                System.out.println("Date=" + date + "\t Arrivee client #" + no_client);
+        if (type == 0)
+            System.out.println("Date=" + date + "\t Depart  client #" + no_client + "\t arrive a t=" + date_debug);
+        else
+            System.out.println("Date=" + date + "\t Arrivee client #" + no_client);
 
     }
 
