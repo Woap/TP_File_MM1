@@ -34,7 +34,7 @@ public class Utile {
 
     // permet de faire un ajout de manière chronologique
     public static LinkedList < Evt > ajoutTrie(Evt e, LinkedList < Evt > l) {
-        int pos = rechercheDichotomique(l, e.get_date(), 0, l.size() - 1);
+        int pos = rechercheDichotomique(l, e.getDate(), 0, l.size() - 1);
         if (pos >= 0) {
             l.add(pos, e);
         }
@@ -45,9 +45,9 @@ public class Utile {
         int imid;
         while (imin <= imax) {
             imid = (imin + imax) / 2;
-            if (l.get(imid).get_date() < evt)
+            if (l.get(imid).getDate() < evt)
                 imin = imid + 1;
-            else if (l.get(imid).get_date() > evt)
+            else if (l.get(imid).getDate() > evt)
                 imax = imid - 1;
             else
                 return imid;

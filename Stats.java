@@ -9,12 +9,46 @@
 
 public class Stats {
 
+    public int nombre_client_actuel;
+    public int iterator_client; // numero client
+    public int sans_attente; // nombre de client sans attente
+    public int avec_attente; // nombre de client avec attente
+    public double nombre_moyen_client;
+    public double temps_moyen_sejour;
+    public double debut;
 
-    public static void affichageResultats(int duree, double lambda, double mu, int iterator_client, int sans_attente, int avec_attente, double nombre_moyen_client, double temps_moyen_sejour, int no_echeancier) {
+    public Stats() {
+        this.nombre_client_actuel = 0;
+        this.iterator_client = 0;
+        this.sans_attente = 0;
+        this.avec_attente = 0;
+        this.nombre_moyen_client = 0.0;
+        this.temps_moyen_sejour = 0.0;
+        this.debut = 0.0;
+    };
 
-        double prob_sans_attente = (double) sans_attente / iterator_client;
-        double prob_avec_attente = (double) avec_attente / iterator_client;
+    public void departClient(double fin) {
+        this.nombre_moyen_client += this.nombre_client_actuel * (fin - this.debut);
+        this.debut = fin;
+        this.nombre_client_actuel--;
+    }
 
+    public void arriveeClient(double fin) {
+        this.nombre_moyen_client += this.nombre_client_actuel * (fin - this.debut);
+        this.debut = fin;
+        this.nombre_client_actuel++;
+    }
+
+
+    public void affichageResultats(int duree, double lambda, double mu, Evt dernier_evenement) {
+
+        this.nombre_moyen_client = (this.nombre_moyen_client / dernier_evenement.getDate());
+        this.temps_moyen_sejour = (this.temps_moyen_sejour / (iterator_client - 1));
+
+        double prob_sans_attente = (double) sans_attente / (iterator_client - 1);
+        double prob_avec_attente = (double) avec_attente / (iterator_client - 1);
+
+        System.out.println("ITERATOR " + this.sans_attente);
 
         System.out.println("----------------------");
         System.out.println(" RESULTATS THEORIQUES");
@@ -36,12 +70,12 @@ public class Stats {
         System.out.println(" RESULTATS THEORIQUES");
         System.out.println("----------------------");
 
-        System.out.println(" Nombre total de clients = " + iterator_client);
+        System.out.println(" Nombre total de clients = " + (this.iterator_client - 1));
         System.out.println(" Proportion clients sans attente = " + prob_sans_attente);
         System.out.println(" Proportion clients avec attente = " + prob_avec_attente);
-        System.out.println(" Debit = " + (double) iterator_client / duree);
-        System.out.println(" Nb moyen de clients dans systeme = " + nombre_moyen_client);
-        System.out.println(" Temps moyen de sejour = " + temps_moyen_sejour);
+        System.out.println(" Debit = " + (double)(this.iterator_client - 1) / duree);
+        System.out.println(" Nb moyen de clients dans systeme = " + this.nombre_moyen_client);
+        System.out.println(" Temps moyen de sejour = " + this.temps_moyen_sejour);
 
     }
 

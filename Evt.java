@@ -35,14 +35,16 @@ public class Evt {
 
     }
 
-    public double get_date() {
+    public double getDate() {
         return date;
     }
 
-    public int get_type() {
-        return type;
+    public double getDuree() {
+        return (date - date_debug);
     }
 
-
+    public int getType() {
+        return type;
+    }
 
 }
