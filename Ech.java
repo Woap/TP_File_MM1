@@ -103,7 +103,7 @@ public class Ech {
             }
         }
 
-        System.out.println("Duree " + duree + " lambda " + lambda + " mu " + mu);
-        stats.affichageResultats(duree, lambda, mu, evenement_actuel);
+
+        stats.affichageResultats(duree, lambda, mu, evenement_actuel, debug);
     }
 }
