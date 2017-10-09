@@ -67,7 +67,7 @@ public class Stats {
         System.out.println(" Temps moyen de sejour (1/mu(1-ro)) = " + 1 / (mu * (1 - (lambda / mu))));
 
         System.out.println("----------------------");
-        System.out.println(" RESULTATS THEORIQUES");
+        System.out.println(" RESULTATS SIMULATION");
         System.out.println("----------------------");
 
         System.out.println(" Nombre total de clients = " + (this.iterator_client - 1));
