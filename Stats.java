@@ -48,8 +48,6 @@ public class Stats {
         double prob_sans_attente = (double) sans_attente / (iterator_client - 1);
         double prob_avec_attente = (double) avec_attente / (iterator_client - 1);
 
-        System.out.println("ITERATOR " + this.sans_attente);
-
         System.out.println("----------------------");
         System.out.println(" RESULTATS THEORIQUES");
         System.out.println("----------------------");
